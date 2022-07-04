@@ -374,7 +374,7 @@ input[data-error]::after {
 /* custom select styles */
 .custom-select {
     position: relative;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     font-size: 1.1rem;
     font-weight: normal;
 }
@@ -412,7 +412,6 @@ input[data-error]::after {
 .select-selected {
     color: #000;
     padding: 11px 16px;
-    border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
     border-radius: 8px;
@@ -498,8 +497,7 @@ input[data-error]::after {
     text-transform: capitalize;
     font-size: 1.3rem;
     padding: 15px 23px;
-    margin: 0;
-    margin-top: 59px;
+    margin: 59px 0 0;
 }
 
 .hero-img {
