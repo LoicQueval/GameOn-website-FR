@@ -36,6 +36,7 @@ function closeModal() {
 const firstName = document.forms['reserve']['first'];
 const lastName = document.forms['reserve']['last'];
 const email = document.forms['reserve']['email']
+const birthdate = document.forms['reserve']['birthdate']
 const quantityInput = document.forms['reserve']['quantity']
 const location1 = document.forms['reserve']['location1']
 const location2 = document.forms['reserve']['location2']
@@ -101,39 +102,50 @@ function validate() {
         return re.test(email);
     }
 
+    // Birthdate
+    if (birthdate.value === '') {
+        birthdate.focus();
+        birthdate.style.border = '1px solid red';
+        errorMessage[3].style.display = 'block';
+        errorMessage[3].innerHTML = 'Veuillez entrer une date de naissance';
+    } else {
+        birthdate.style.border = '0px solid red';
+        errorMessage[3].style.display = 'none';
+    }
+
     // Quantity
     const quantity = parseInt(quantityInput.value)
 
     if (quantity <= 99 && quantity >= 0) {
         quantityInput.style.border = '0px solid red';
-        errorMessage[3].style.display = 'none';
+        errorMessage[4].style.display = 'none';
     } else if (!quantity) {
         quantityInput.focus();
         quantityInput.style.border = '1px solid red';
-        errorMessage[3].style.display = 'block';
-        errorMessage[3].innerHTML = 'Veuillez entrer un nombre';
+        errorMessage[4].style.display = 'block';
+        errorMessage[4].innerHTML = 'Veuillez entrer un nombre';
     } else {
         quantityInput.focus();
         quantityInput.style.border = '1px solid red';
-        errorMessage[3].style.display = 'block';
-        errorMessage[3].innerHTML = 'Veuillez entrer un nombre de 0 à 99';
+        errorMessage[4].style.display = 'block';
+        errorMessage[4].innerHTML = 'Veuillez entrer un nombre de 0 à 99';
     }
 
     if (location1.checked || location2.checked || location3.checked || location4.checked || location5.checked || location6.checked) {
-        errorMessage[4].style.display = 'none';
+        errorMessage[5].style.display = 'none';
     } else {
         location1.focus();
-        errorMessage[4].style.display = 'block';
-        errorMessage[4].innerHTML = 'Veuillez sélectionner une ville';
+        errorMessage[5].style.display = 'block';
+        errorMessage[5].innerHTML = 'Veuillez sélectionner une ville';
     }
 
     if (checkbox1.checked) {
-        errorMessage[5].style.display = 'none';
+        errorMessage[6].style.display = 'none';
     } else {
         checkbox1.focus();
         checkbox1.style.border = '1px solid red';
-        errorMessage[5].style.display = 'block';
-        errorMessage[5].innerHTML = 'Veuillez accepter les conditions d\'utilisation';
+        errorMessage[6].style.display = 'block';
+        errorMessage[6].innerHTML = 'Veuillez accepter les conditions d\'utilisation';
     }
 
     return false
