@@ -48,6 +48,7 @@ const checkbox1 = document.forms['reserve']['checkbox1']
 
 // Submit function
 function validate() {
+    let noErrors = true;
 
     // Firstname
     if (firstName.value === '') {
@@ -55,11 +56,14 @@ function validate() {
         firstName.style.border = '1px solid red';
         errorMessage[0].style.display = 'block';
         errorMessage[0].innerHTML = 'Vous devez entrer votre prénom';
+        noErrors = false;
     } else if (firstName.value.length < 2) {
         firstName.focus();
         firstName.style.border = '1px solid red';
         errorMessage[0].style.display = 'block';
         errorMessage[0].innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du prénom';
+        noErrors = false;
+
     } else {
         firstName.style.border = '0px solid red';
         errorMessage[0].style.display = 'none';
@@ -71,11 +75,13 @@ function validate() {
         lastName.style.border = '1px solid red';
         errorMessage[1].style.display = 'block';
         errorMessage[1].innerHTML = 'Vous devez entrer votre nom';
+        noErrors = false;
     } else if (lastName.value.length < 2) {
         lastName.focus();
         lastName.style.border = '1px solid red';
         errorMessage[1].style.display = 'block';
         errorMessage[1].innerHTML = 'Veuillez entrer 2 caractères ou plus pour le champ du nom';
+        noErrors = false;
     } else {
         lastName.style.border = '0px solid red';
         errorMessage[1].style.display = 'none';
@@ -87,6 +93,7 @@ function validate() {
         email.style.border = '1px solid red';
         errorMessage[2].style.display = 'block';
         errorMessage[2].innerHTML = 'Veuillez entrer un email';
+        noErrors = false;
     } else if (checkEmail(email.value)) {
         email.style.border = '0px solid red';
         errorMessage[2].style.display = 'none';
@@ -95,6 +102,7 @@ function validate() {
         email.style.border = '1px solid red';
         errorMessage[2].style.display = 'block';
         errorMessage[2].innerHTML = 'Veuillez entrer un email valide';
+        noErrors = false;
     }
 
     function checkEmail(email) {
@@ -108,6 +116,7 @@ function validate() {
         birthdate.style.border = '1px solid red';
         errorMessage[3].style.display = 'block';
         errorMessage[3].innerHTML = 'Veuillez entrer une date de naissance';
+        noErrors = false
     } else {
         birthdate.style.border = '0px solid red';
         errorMessage[3].style.display = 'none';
@@ -124,11 +133,13 @@ function validate() {
         quantityInput.style.border = '1px solid red';
         errorMessage[4].style.display = 'block';
         errorMessage[4].innerHTML = 'Veuillez entrer un nombre';
+        noErrors = false;
     } else {
         quantityInput.focus();
         quantityInput.style.border = '1px solid red';
         errorMessage[4].style.display = 'block';
         errorMessage[4].innerHTML = 'Veuillez entrer un nombre de 0 à 99';
+        noErrors = false;
     }
 
     if (location1.checked || location2.checked || location3.checked || location4.checked || location5.checked || location6.checked) {
@@ -137,6 +148,7 @@ function validate() {
         location1.focus();
         errorMessage[5].style.display = 'block';
         errorMessage[5].innerHTML = 'Veuillez sélectionner une ville';
+        noErrors = false;
     }
 
     if (checkbox1.checked) {
@@ -146,7 +158,8 @@ function validate() {
         checkbox1.style.border = '1px solid red';
         errorMessage[6].style.display = 'block';
         errorMessage[6].innerHTML = 'Veuillez accepter les conditions d\'utilisation';
+        noErrors = false;
     }
 
-    return false
+    return noErrors;
 }
