@@ -32,12 +32,23 @@ function closeModal() {
     modalbg.style.display = 'none';
 }
 
+// DOM Forms Element
 const firstName = document.forms['reserve']['first'];
 const lastName = document.forms['reserve']['last'];
 const email = document.forms['reserve']['email']
+const quantityInput = document.forms['reserve']['quantity']
+const location1 = document.forms['reserve']['location1']
+const location2 = document.forms['reserve']['location2']
+const location3 = document.forms['reserve']['location3']
+const location4 = document.forms['reserve']['location4']
+const location5 = document.forms['reserve']['location5']
+const location6 = document.forms['reserve']['location6']
+const checkbox1 = document.forms['reserve']['checkbox1']
 
+// Submit function
 function validate() {
 
+    // Firstname
     if (firstName.value === '') {
         firstName.focus();
         firstName.style.border = '1px solid red';
@@ -53,6 +64,7 @@ function validate() {
         errorMessage[0].style.display = 'none';
     }
 
+    // Lastname
     if (lastName.value === '') {
         lastName.focus();
         lastName.style.border = '1px solid red';
@@ -68,6 +80,7 @@ function validate() {
         errorMessage[1].style.display = 'none';
     }
 
+    // Email
     if (email.value === '') {
         email.focus();
         email.style.border = '1px solid red';
@@ -86,6 +99,41 @@ function validate() {
     function checkEmail(email) {
         const re = /^(([^<>()[\]\\.,;:\s@]+(\.[^<>()[\]\\.,;:\s@]+)*)|(.+))@((\[\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})|(([a-zA-Z\-\d]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
+    }
+
+    // Quantity
+    const quantity = parseInt(quantityInput.value)
+
+    if (quantity <= 99 && quantity >= 0) {
+        quantityInput.style.border = '0px solid red';
+        errorMessage[3].style.display = 'none';
+    } else if (!quantity) {
+        quantityInput.focus();
+        quantityInput.style.border = '1px solid red';
+        errorMessage[3].style.display = 'block';
+        errorMessage[3].innerHTML = 'Veuillez entrer un nombre';
+    } else {
+        quantityInput.focus();
+        quantityInput.style.border = '1px solid red';
+        errorMessage[3].style.display = 'block';
+        errorMessage[3].innerHTML = 'Veuillez entrer un nombre de 0 à 99';
+    }
+
+    if (location1.checked || location2.checked || location3.checked || location4.checked || location5.checked || location6.checked) {
+        errorMessage[4].style.display = 'none';
+    } else {
+        location1.focus();
+        errorMessage[4].style.display = 'block';
+        errorMessage[4].innerHTML = 'Veuillez sélectionner une ville';
+    }
+
+    if (checkbox1.checked) {
+        errorMessage[5].style.display = 'none';
+    } else {
+        checkbox1.focus();
+        checkbox1.style.border = '1px solid red';
+        errorMessage[5].style.display = 'block';
+        errorMessage[5].innerHTML = 'Veuillez accepter les conditions d\'utilisation';
     }
 
     return false
