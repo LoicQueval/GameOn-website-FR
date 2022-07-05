@@ -12,7 +12,8 @@ const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.modal-btn');
 const closeButton = document.querySelector('.close');
 const errorMessage = document.querySelectorAll('.error');
-/*const formData = document.querySelectorAll('.formData');*/
+const confirmation = document.querySelector('.confirmation');
+const reserveForm = document.getElementById("reserve");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
@@ -30,21 +31,23 @@ if (closeButton !== null) {
 // close modal form
 function closeModal() {
     modalbg.style.display = 'none';
+    reserveForm.reset();
+    confirmation.style.zIndex = '-1';
 }
 
 // DOM Forms Element
 const firstName = document.forms['reserve']['first'];
 const lastName = document.forms['reserve']['last'];
-const email = document.forms['reserve']['email']
-const birthdate = document.forms['reserve']['birthdate']
-const quantityInput = document.forms['reserve']['quantity']
-const location1 = document.forms['reserve']['location1']
-const location2 = document.forms['reserve']['location2']
-const location3 = document.forms['reserve']['location3']
-const location4 = document.forms['reserve']['location4']
-const location5 = document.forms['reserve']['location5']
-const location6 = document.forms['reserve']['location6']
-const checkbox1 = document.forms['reserve']['checkbox1']
+const email = document.forms['reserve']['email'];
+const birthdate = document.forms['reserve']['birthdate'];
+const quantityInput = document.forms['reserve']['quantity'];
+const location1 = document.forms['reserve']['location1'];
+const location2 = document.forms['reserve']['location2'];
+const location3 = document.forms['reserve']['location3'];
+const location4 = document.forms['reserve']['location4'];
+const location5 = document.forms['reserve']['location5'];
+const location6 = document.forms['reserve']['location6'];
+const checkbox1 = document.forms['reserve']['checkbox1'];
 
 // Submit function
 function validate() {
@@ -116,7 +119,7 @@ function validate() {
         birthdate.style.border = '1px solid red';
         errorMessage[3].style.display = 'block';
         errorMessage[3].innerHTML = 'Veuillez entrer une date de naissance';
-        noErrors = false
+        noErrors = false;
     } else {
         birthdate.style.border = '0px solid red';
         errorMessage[3].style.display = 'none';
@@ -161,5 +164,11 @@ function validate() {
         noErrors = false;
     }
 
-    return noErrors;
+    if (noErrors === true) {
+        confirmation.style.zIndex = '1';
+        reserveForm.reset();
+        return false;
+    } else {
+        return noErrors;
+    }
 }

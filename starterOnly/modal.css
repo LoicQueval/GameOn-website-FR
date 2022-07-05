@@ -209,7 +209,7 @@ label {
 
 input {
     padding: 8px;
-    border: 0.8px solid #ccc;
+    border: 1px solid #ccc;
     outline: none;
 }
 
@@ -356,6 +356,24 @@ input[data-error]::after {
 
 .close:after {
     transform: rotate(-45deg);
+}
+
+.confirmation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
+    height: 84%;
+    width: 100%;
+    background-color: #232323;
+    margin-top: 40px;
+}
+
+.confirmation-message {
+    color: white;
+    max-width: 206px;
+    text-align: center;
 }
 
 .btn-submit,
