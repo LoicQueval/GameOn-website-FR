@@ -35,7 +35,7 @@ function closeModal() {
     confirmation.style.zIndex = '-1';
 }
 
-/*// close-button modal event
+// close-button modal event
 if (closeButton !== null) {
     closeButton.addEventListener('click', closeButtonModal);
 }
@@ -45,7 +45,7 @@ function closeButtonModal() {
     modalbg.style.display = 'none';
     form.reset();
     confirmation.style.zIndex = '-1';
-}*/
+}
 
 // DOM Forms Element
 const form = document.forms['reserve'];
