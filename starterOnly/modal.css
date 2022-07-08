@@ -11,7 +11,6 @@
 }
 
 /* Landing Page */
-
 body {
     display: flex;
     flex-direction: column;
@@ -123,8 +122,6 @@ main {
     margin: 1px 20px 15px;
     border-radius: 2rem;
     text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -149,7 +146,6 @@ main {
 }
 
 /* Modal form */
-
 .button {
     background: #fe142f;
     margin-top: 0.5em;
@@ -213,6 +209,7 @@ input {
     outline: none;
 }
 
+/* Form messages errors */
 .error {
     color: red;
     font-size: small;
@@ -251,12 +248,6 @@ input {
     border: 2px solid #e54858;
 }
 
-/*
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
     position: relative;
@@ -358,6 +349,7 @@ input[data-error]::after {
     transform: rotate(-45deg);
 }
 
+/* Confirmation modal */
 .confirmation {
     display: flex;
     justify-content: center;
@@ -372,7 +364,8 @@ input[data-error]::after {
     margin-top: 40px;
 }
 
-.confirmation-message  {
+/* Confirmation message modal */
+.confirmation-message {
     display: flex;
     align-items: center;
     height: 80%;
@@ -381,6 +374,7 @@ input[data-error]::after {
     text-align: center;
 }
 
+/* Confirmation close button modal */
 .close-button {
     z-index: -1;
 }
@@ -612,4 +606,3 @@ footer {
         opacity: 1;
     }
 }
-
