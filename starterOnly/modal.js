@@ -10,10 +10,10 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.modal-btn');
-const closeButton = document.querySelector('.close');
+const closeIcon = document.querySelector('.close');
 const errorMessage = document.querySelectorAll('.error');
 const confirmation = document.querySelector('.confirmation');
-const reserveForm = document.getElementById("reserve");
+const closeButton = document.querySelector('.close-button');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
@@ -23,19 +23,32 @@ function launchModal() {
     modalbg.style.display = 'block';
 }
 
-// launch modal event
-if (closeButton !== null) {
-    closeButton.addEventListener('click', closeModal);
+// close modal event
+if (closeIcon !== null) {
+    closeIcon.addEventListener('click', closeModal);
 }
 
 // close modal form
 function closeModal() {
     modalbg.style.display = 'none';
-    reserveForm.reset();
+    form.reset();
     confirmation.style.zIndex = '-1';
 }
 
+/*// close-button modal event
+if (closeButton !== null) {
+    closeButton.addEventListener('click', closeButtonModal);
+}
+
+// close modal form
+function closeButtonModal() {
+    modalbg.style.display = 'none';
+    form.reset();
+    confirmation.style.zIndex = '-1';
+}*/
+
 // DOM Forms Element
+const form = document.forms['reserve'];
 const firstName = document.forms['reserve']['first'];
 const lastName = document.forms['reserve']['last'];
 const email = document.forms['reserve']['email'];
@@ -48,6 +61,7 @@ const location4 = document.forms['reserve']['location4'];
 const location5 = document.forms['reserve']['location5'];
 const location6 = document.forms['reserve']['location6'];
 const checkbox1 = document.forms['reserve']['checkbox1'];
+
 
 // Submit function
 function validate() {
@@ -166,9 +180,8 @@ function validate() {
 
     if (noErrors === true) {
         confirmation.style.zIndex = '1';
-        reserveForm.reset();
-        return false;
-    } else {
-        return noErrors;
+        closeButton.style.zIndex = '1';
+        form.reset();
     }
+    return false;
 }
