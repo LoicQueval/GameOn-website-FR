@@ -68,7 +68,9 @@ function validate() {
     let noErrors = true;
 
     // Firstname
-    if (firstName.value === '') {
+    const firstNameIsNumber = parseInt(firstName.value)
+
+    if (firstName.value === '' || firstNameIsNumber) {
         firstName.focus();
         firstName.style.border = '1px solid red';
         errorMessage[0].style.display = 'block';
@@ -87,7 +89,9 @@ function validate() {
     }
 
     // Lastname
-    if (lastName.value === '') {
+    const lastNameIsNumber = parseInt(lastName.value)
+
+    if (lastName.value === '' || lastNameIsNumber) {
         lastName.focus();
         lastName.style.border = '1px solid red';
         errorMessage[1].style.display = 'block';
@@ -183,5 +187,5 @@ function validate() {
         closeButton.style.zIndex = '1';
         form.reset();
     }
-    return false;
+    return noErrors;
 }
