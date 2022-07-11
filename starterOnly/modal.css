@@ -78,6 +78,11 @@ img {
     .topnav a.icon {
         float: right;
         display: block;
+        color: red;
+    }
+
+    .topnav a.icon:hover {
+        color: white;
     }
 }
 
