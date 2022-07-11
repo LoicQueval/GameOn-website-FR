@@ -351,12 +351,12 @@ input {
 
 /* Confirmation modal */
 .confirmation {
-    display: flex;
     justify-content: center;
     align-items: center;
     align-content: space-between;
     flex-direction: column;
     position: absolute;
+    display: none;
     z-index: -1;
     height: 94%;
     width: 100%;

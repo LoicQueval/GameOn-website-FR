@@ -48,6 +48,7 @@ function closeModal() {
     modalbg.style.display = 'none';
     form.reset();
     confirmation.style.zIndex = '-1';
+    confirmation.style.display = 'none';
 }
 
 // button close modal event
@@ -60,6 +61,7 @@ function closeButtonModal() {
     modalbg.style.display = 'none';
     form.reset();
     confirmation.style.zIndex = '-1';
+    confirmation.style.display = 'none';
 }
 
 // Submit function
@@ -208,6 +210,7 @@ function validate() {
     // check if there is no form error, launch complet modal
     if (noErrors === true) {
         confirmation.style.zIndex = '1';
+        confirmation.style.display = 'flex';
         closeButton.style.zIndex = '1';
         form.reset();
     }
