@@ -66,6 +66,10 @@ img {
     border-radius: 15px;
 }
 
+.topnav a span {
+    border-bottom: 1px solid white;
+}
+
 .topnav .icon {
     display: none;
 }
